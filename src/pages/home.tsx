@@ -1,56 +1,46 @@
-import appLogo from "@/assets/logo.png";
-import stargaze from "@/assets/stargaze.svg";
-import HorizontalInfiniteScroll from "@/components/horizontal-infinite-scroll";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Jumbotron from "./_components/jumbotron";
+import handImage from "@/assets/hand.png";
 
 const Home = () => {
-  const images = [
+  const cards = [
     {
-      img: stargaze,
+      title: "Free bot scripting",
+      description: "Get your free bot script now",
+      image: handImage,
     },
     {
-      img: stargaze,
+      title: "Free bot scripting",
+      description: "Get your free bot script now",
+      image: handImage,
     },
     {
-      img: stargaze,
-    },
-    {
-      img: stargaze,
-    },
-    {
-      img: stargaze,
-    },
-    {
-      img: stargaze,
-    },
-    {
-      img: stargaze,
-    },
-    {
-      img: stargaze,
+      title: "Free bot scripting",
+      description: "Get your free bot script now",
+      image: handImage,
     },
   ];
   return (
-    <>
-      <section className="flex flex-row justify-between mx-10">
-        <div className="flex flex-col text-white items-start justify-center gap-3">
-          <div>
-            <h1 className="font-bold text-5xl">
-              Your Trusted Airdrop Bot Script Hub
-            </h1>
-          </div>
-          <div>
-            Airdrop Script Service: The Reliable Partner for Automated Airdrop
-            Solutions, Offering Efficient Execution, Security, and 24/7 Support.
-          </div>
-        </div>
-        <div>
-          <img src={appLogo} width={500} height={500} alt="Hero" />
-        </div>
+    <div className="flex flex-col gap-4">
+      <Jumbotron />
+      <section className="flex justify-center mx-10 gap-3">
+        {cards.map(({ title, description, image }, index) => (
+          <Card key={index} className="w-full">
+            <CardHeader>
+              <CardTitle>{title}</CardTitle>
+              {/* <CardDescription>{description}</CardDescription> */}
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center gap-2">
+                <img width={70} height={70} src={image} alt="test" />
+                <div>{description}</div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </section>
-      <section className="flex flex-row justify-center mx-10 w-full">
-        <HorizontalInfiniteScroll images={images} />
-      </section>
-    </>
+    </div>
   );
 };
+
 export default Home;

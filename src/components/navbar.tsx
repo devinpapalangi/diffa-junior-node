@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button.tsx";
-import appLogo from "@/assets/logo.png";
+import appLogo from "@/assets/app_logo.png";
 
 const Navbar = () => {
   const menus = [
